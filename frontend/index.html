@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jenkins App</title>
+</head>
+<body>
+
+    <h1>Hello from Jenkins!</h1>
+
+    <button onclick="hello()">Click Me</button>
+
+    <p id="result"></p>
+
+    <script>
+        function hello() {
+            fetch("http://localhost:6000/hello")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("result").innerText = data;
+                });
+        }
+    </script>
+
+</body>
+</html>
