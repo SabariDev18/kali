@@ -2,11 +2,13 @@ services:
 
   backend:
     build: ./backend
+    image: backend
     ports:
       - "6000:6000"
 
   frontend:
     build: ./frontend
+    image: frontend
     ports:
       - "8081:80"
     depends_on:

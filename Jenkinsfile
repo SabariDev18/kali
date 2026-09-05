@@ -9,6 +9,7 @@ pipeline {
         }
         stage('scan'){
             steps{
+                echo 'Trivy scanning...'
                 sh 'trivy image --exit-code 1 --severity HIGH,CRITICAL backend'
                 sh 'trivy image --exit-code 1 --severity HIGH,CRITICAL frontend'
                  }
