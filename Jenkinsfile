@@ -12,5 +12,10 @@ pipeline{
             sh 'mvn clean package'
              }
             }
+     stage('jar files'){
+         steps{
+              sh 'ls -l /var/lib/jenkins/workspace/maven-java/target'
+             }
+           }
          }
     }
