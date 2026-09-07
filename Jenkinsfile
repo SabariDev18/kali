@@ -14,7 +14,7 @@ pipeline{
             }
      stage('jar files'){
          steps{
-              sh 'ls -l /var/lib/jenkins/workspace/maven-java/target'
+              sh 'find . -type f -name "*.jar" '
              }
            }
          }
