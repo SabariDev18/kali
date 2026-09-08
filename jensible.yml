@@ -1,0 +1,23 @@
+- name: jensible
+  hosts: all
+  become: yes
+
+  tasks:
+
+    - name: java
+      shell:  pkill -f 'java-app-1.0.jar'
+
+    - name: copy app jar
+      copy:
+        src: ./maven-hw/target/java-app-1.0.jar
+        dest: /maven/jars/java-app-1.0.jar
+        owner: ec2-user
+        group: ec2-user
+        mode: '0755'
+  
+    - name: start app
+      shell: nohup java -jar /maven/jars/java-app-1.0.jar > /maven/jars/app.log 2>&1 &
+      become_user:  ec2-user
+
+
+
