@@ -8,7 +8,9 @@ pipeline{
          }
     stage('deploy'){
       steps{
-          sh 'ansible-playbook -i ansible-m.ini jensible.yml'
+          sshagent(['ec2-ssh-key']) {
+                    sh 'ansible-playbook -i ansible-m.ini jensible.yml'
+                }
            }
          }
        }
