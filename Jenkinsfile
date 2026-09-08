@@ -6,10 +6,10 @@ pipeline{
           sh 'mvn clean package'
            }
          }
-    stage('trivy'){
-        steps{
-            sh 'trivy fs --severity HIGH,CRITICAL .'
-             }
+    stage('deploy'){
+      steps{
+          sh 'ansible-playbook -i ansible-m.ini jensible.yml'
            }
-        }
+         }
+       }
  }
