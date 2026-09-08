@@ -5,11 +5,11 @@
   tasks:
 
     - name: java
-      shell:  pkill -f 'java-app-1.0.jar'
+      shell:  pkill -f 'java-app-1.0.jar' || true
 
     - name: copy app jar
       copy:
-        src: ./maven-hw/target/java-app-1.0.jar
+        src: ./target/java-app-1.0.jar
         dest: /maven/jars/java-app-1.0.jar
         owner: ec2-user
         group: ec2-user
