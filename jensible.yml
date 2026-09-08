@@ -4,8 +4,8 @@
 
   tasks:
 
-    - name: java
-      shell:  pkill -f 'java-app-1.0.jar' || true
+  #  - name: java
+   #   shell:  pkill -f 'java-app-1.0.jar' || true
 
     - name: copy app jar
       copy:
